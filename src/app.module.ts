@@ -16,7 +16,7 @@ import { PlantsModule } from './plants/plants.module';
         type: 'sqlite',
         database: configService.get<string>('DATABASE_NAME', 'plantcarepro.db'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: configService.get<string>('NODE_ENV') !== 'production',
+        synchronize: configService.get<string>('DB_SYNC') === 'true' || configService.get<string>('NODE_ENV') !== 'production',
       }),
       inject: [ConfigService],
     }),
