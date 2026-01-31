@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: plantcarepro-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_NAME
+        value: plantcarepro.db
+      - key: DB_SYNC
+        value: true
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.vercel.app
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
+
+permissions:
+  - key: sqlite-data
+    value: read-write
