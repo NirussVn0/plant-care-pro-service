@@ -13,10 +13,14 @@ import { PlantsModule } from './plants/plants.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
-        type: 'sqlite',
-        database: configService.get<string>('DATABASE_NAME', 'plantcarepro.db'),
+        type: 'postgres',
+        host: configService.get<string>('POSTGRES_HOST'),
+        port: configService.get<number>('POSTGRES_PORT'),
+        username: configService.get<string>('POSTGRES_USER'),
+        password: configService.get<string>('POSTGRES_PASSWORD'),
+        database: configService.get<string>('POSTGRES_DB'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: configService.get<string>('DB_SYNC') === 'true' || configService.get<string>('NODE_ENV') !== 'production',
+        synchronize: configService.get<string>('NODE_ENV') !== 'production',
       }),
       inject: [ConfigService],
     }),

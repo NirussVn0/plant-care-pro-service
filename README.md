@@ -1,11 +1,11 @@
-# 🌿 PlantCare Pro API
+# 🌿 PlantCare Pro Service
 
 <div align="center">
 
 ![PlantCare Pro API](https://img.shields.io/badge/PlantCare-API-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 [![NestJS](https://img.shields.io/badge/NestJS-10-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite)](https://www.sqlite.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
 
 **Robust Backend for PlantCare Pro** 🌱
@@ -23,7 +23,7 @@ Scalable REST API built with NestJS to manage your indoor jungle data securely a
 | Feature | Description |
 |---------|-------------|
 | 🔒 **Secure API** | CORS enabled, Input Validation, and Environment Configuration |
-| 🗄️ **Data Persistence** | Lightweight SQLite database with TypeORM |
+| 🗄️ **Data Persistence** | Robust PostgreSQL database with TypeORM |
 | 🚀 **High Performance** | Built on fast & efficient NestJS framework |
 | 🧩 **Modular Design** | Resource-based architecture (Plants, Users, Logs) |
 | 🛠️ **Production Ready** | Optimized build and configuration for deployment |
@@ -47,16 +47,27 @@ cd backend
 npm install
 ```
 
-### Configuration
+## Database Setup (PostgreSQL)
 
-Create a `.env` file in the root directory:
+This project uses **PostgreSQL**.
 
-```env
-PORT=3000
-DATABASE_NAME=plantcarepro.db
-NODE_ENV=development
-FRONTEND_URL=http://localhost:3001
-```
+### Running with Docker (Recommended)
+
+1.  Navigate to the project root.
+2.  Start the database and backend:
+    ```bash
+    docker-compose up -d
+    ```
+3.  The backend will be available at `http://localhost:3000`.
+
+### Running Locally without Docker
+
+1.  Ensure you have a PostgreSQL instance running.
+2.  Set environment variables in `.env` (see `.env.example`).
+3.  Run the app:
+    ```bash
+    npm run start:dev
+    ```
 
 ### Running the Server
 
@@ -95,7 +106,7 @@ API will be available at [http://localhost:3000](http://localhost:3000).
 
 **Database**
 
-![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
 
 </td>
 <td align="center" width="120">
